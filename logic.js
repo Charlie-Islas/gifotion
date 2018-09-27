@@ -74,7 +74,7 @@ $(document).ready(function(){
         $("#gifsRow").empty();
         var emotion=$(this).attr("id");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        emotion + "&api_key=YTwN196lqIIKvebh5Fx1jLVaHtDfcRgU&limit=10";
+        emotion + "&api_key=YTwN196lqIIKvebh5Fx1jLVaHtDfcRgU&limit=15";
 //another key>: dc6zaTOxFJmzC
         $.ajax({
             url: queryURL,
@@ -106,7 +106,7 @@ $(document).ready(function(){
 
             });
     });
-    
+
     $(document).on("click",".img-thumbnail",function(){
                 
         var state=$(this).attr("data-state");
