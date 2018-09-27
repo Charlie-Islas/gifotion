@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="logic.js"></script>
+
+    <title>Giphy API</title>
+</head>
+<body>
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light py-0">
+                    <div class="container menu">
+                        <a class="navbar-brand" href="#">
+                            <h1>Welcome to Gif-otions</h1>
+                            <h2>The emotions gif site!</h2>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </nav>
+
+                <br>
+
+                <div class="container" id="mainContainer">
+
+                        <div class="row" id="headerTwo">
+                
+                            <div class="col-md">
+                                <h3>Press a button to display gifs about that emotion. Feel free to add other emotions to the button list.</h3>
+                            </div>
+                
+                        </div>
+                
+                <br>
+                
+                <div id="buttons">
+                   <div class="row" id="firstRow">
+
+                       <div class="col-md-3" id="1">
+
+                        </div>
+
+                    </div>
+
+                </div>
+                
+                <br>
+
+                <div class="row">
+
+                        <div class="col-md-4">
+
+                                <div class="form-group">
+                                        <label for="usr">Add another emotion!</label>
+                                        <input type="text" class="form-control" id="usr">
+                                </div>
+    
+                        </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+
+                            <button type="button" class="btn btn-primary" id="addBtn">Add!</button>   
+
+                    </div>
+                </div>
+
+                <br>
+                <div class="row" id="gifsRow">
+                </div>
+                
+            </div>
+            
+
+
+
+
+    
+</body>
+
+<script type="text/javascript" src="logic.js"></script>
+</html>
