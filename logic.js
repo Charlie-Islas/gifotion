@@ -3,9 +3,6 @@ window.onload=function(){
     
 var firstEmotions=["Happiness","Surprise","Sadness","Fear","Anger","Joy","Trust","Disgust","Euphoria","Peace","Motivation","Silliness"]
 
-
-
-
 function generateButtons(){
 
     //function to make buttons appear 
@@ -59,7 +56,6 @@ $(document).keypress(function(e) {
             $(newButton).addClass('btn btn-primary');
             $(newButton).addClass('emotionBtn');
             $(newButton).attr("id",capitalised);
-    
             $('#buttons').append(newButton);
             $('#usr').val('');
         }
@@ -70,7 +66,7 @@ $(document).keypress(function(e) {
 
 $(document).ready(function(){
 
-    $(document).on("click", "button",function(){
+    $(document).on("click", ".emotionBtn",function(){
         console.log(this);
         console.log("entra al click con boton extra");
         $("#gifsRow").empty();
@@ -95,18 +91,43 @@ $(document).ready(function(){
     
                 var emotionImage = $("<img>");
                 emotionImage.addClass("img-thumbnail");
-                emotionImage.attr("src", results[i].images.fixed_height.url);
-    
+                emotionImage.attr("src", results[i].images.fixed_height_still.url);
+                emotionImage.attr("data-state","still");
+                emotionImage.attr("data-still",results[i].images.fixed_height_still.url);
+                emotionImage.attr("data-animate",results[i].images.fixed_height.url);
+
                 gifDiv.prepend(p);
                 gifDiv.prepend(emotionImage);
     
                 $("#gifsRow").prepend(gifDiv);
               }
+
+              $(document).on("click",".img-thumbnail",function(){
+                
+                var state=$(this).attr("data-state");
+                console.log(this);
+                console.log(state);
+                console.log("entra al click con imagen");
+                if (state==="still"){
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
+                   } 
+                else{
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                   }    
+            
+            });
+
+
+
             });
        
 
 
     });
+
+
 
 });
 generateButtons();
