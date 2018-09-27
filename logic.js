@@ -3,8 +3,10 @@ window.onload=function(){
     
 var firstEmotions=["Happiness","Surprise","Sadness","Fear","Anger","Joy","Trust","Disgust","Euphoria","Peace","Motivation","Silliness"]
 
-function generateButtons(){
 
+
+function generateButtons(){
+    $("#clickInstructions").hide();
     //function to make buttons appear 
     //for to make the first buttons
     for(var i=0;i<firstEmotions.length;i++){ 
@@ -67,8 +69,8 @@ $(document).keypress(function(e) {
 $(document).ready(function(){
 
     $(document).on("click", ".emotionBtn",function(){
-        console.log(this);
-        console.log("entra al click con boton extra");
+        
+        $("#clickInstructions").show();
         $("#gifsRow").empty();
         var emotion=$(this).attr("id");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -102,31 +104,25 @@ $(document).ready(function(){
                 $("#gifsRow").prepend(gifDiv);
               }
 
-              $(document).on("click",".img-thumbnail",function(){
-                
-                var state=$(this).attr("data-state");
-                console.log(this);
-                console.log(state);
-                console.log("entra al click con imagen");
-                if (state==="still"){
-                    $(this).attr("src", $(this).attr("data-animate"));
-                    $(this).attr("data-state", "animate");
-                   } 
-                else{
-                    $(this).attr("src", $(this).attr("data-still"));
-                    $(this).attr("data-state", "still");
-                   }    
-            
             });
-
-
-
-            });
-       
-
-
     });
-
+    
+    $(document).on("click",".img-thumbnail",function(){
+                
+        var state=$(this).attr("data-state");
+        console.log(this);
+        console.log(state);
+        console.log("entra al click con imagen");
+        if (state==="still"){
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+           } 
+        else{
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+           }    
+    
+    });
 
 
 });
