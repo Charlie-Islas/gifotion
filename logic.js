@@ -3,24 +3,18 @@ window.onload=function(){
     
 var firstEmotions=["Happiness","Surprise","Sadness","Fear","Anger","Joy","Trust","Disgust","Euphoria","Peace","Motivation","Silliness"]
 
-
-
 function generateButtons(){
     $("#clickInstructions").hide();
     //function to make buttons appear 
     //for to make the first buttons
     for(var i=0;i<firstEmotions.length;i++){ 
-            //$("#firstRow").append("<div class='col-md-3'><button type='button' class='btn btn-primary'>" + firstEmotions[i] + "</button></div>");
             var newButton=$('<button>').text(firstEmotions[i]);
             $(newButton).addClass('btn btn-primary');
             $(newButton).addClass('emotionBtn');
             $(newButton).attr("id",firstEmotions[i]);
             $("#buttons").append(newButton);
-
-      
     }
 }
-
 
 $("#addBtn").on("click", function() {
 
@@ -38,12 +32,10 @@ $("#addBtn").on("click", function() {
     $(newButton).attr("id",capitalised);
     $('#buttons').append(newButton);
     $('#usr').val('');}
-
   });
 
 $(document).keypress(function(e) {
-
-    
+ 
     if(e.which == 13) {
         var makeBtn=false;
         var str=$('#usr').val();
@@ -73,9 +65,8 @@ $(document).ready(function(){
         $("#clickInstructions").show();
         $("#gifsRow").empty();
         var emotion=$(this).attr("id");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        emotion + "&api_key=YTwN196lqIIKvebh5Fx1jLVaHtDfcRgU&limit=15";
-//another key>: dc6zaTOxFJmzC
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q="+emotion+"&api_key=YTwN196lqIIKvebh5Fx1jLVaHtDfcRgU&limit=15";
+
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -86,11 +77,10 @@ $(document).ready(function(){
                 
               
               for (var i = 0; i < results.length; i++) {
+
                 var gifDiv = $("<div>");
                 var rating = results[i].rating;
-    
                 var p = $("<p>").text("Rating: " + rating);
-    
                 var emotionImage = $("<img>");
                 emotionImage.addClass("img-thumbnail");
                 emotionImage.attr("src", results[i].images.fixed_height_still.url);
@@ -110,9 +100,7 @@ $(document).ready(function(){
     $(document).on("click",".img-thumbnail",function(){
                 
         var state=$(this).attr("data-state");
-        console.log(this);
-        console.log(state);
-        console.log("entra al click con imagen");
+       
         if (state==="still"){
             $(this).attr("src", $(this).attr("data-animate"));
             $(this).attr("data-state", "animate");
@@ -126,7 +114,7 @@ $(document).ready(function(){
 
 
 });
-generateButtons();
 
+generateButtons();
 
 }
