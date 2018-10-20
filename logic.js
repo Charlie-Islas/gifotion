@@ -74,7 +74,7 @@ $(document).ready(function(){
             .then(function(response) {
               
               var results = response.data;
-                
+            console.log(results);
               
               for (var i = 0; i < results.length; i++) {
 
@@ -90,7 +90,6 @@ $(document).ready(function(){
 
                 gifDiv.prepend(p);
                 gifDiv.prepend(emotionImage);
-    
                 $("#gifsRow").prepend(gifDiv);
               }
 
